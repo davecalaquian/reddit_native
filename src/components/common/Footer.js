@@ -13,7 +13,7 @@ return (
           name='reddit-alien'
           type='font-awesome'
           color='#FF473D'
-          size={28}
+          size={27}
         />
       </TouchableOpacity>
 
@@ -59,16 +59,17 @@ return (
 
 const styles = {
   footerStyle: {
-    position: 'absolute',
+    // position: 'absolute',
     left: 0,
     right: 0,
     bottom: 0,
     backgroundColor: '#fff',
-    height: 76,
+    height: 60,
     padding: 20,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+
   }
 };
 
