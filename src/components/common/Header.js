@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { Icon } from 'react-native-elements';
 
 const Header = () => {
@@ -13,8 +13,11 @@ const Header = () => {
       />
     </TouchableOpacity>
 
-    <View style={{ flex: 3 }}>
-      <Text style={headerTextStyle}>reddit</Text>
+    <View style={{ flex: 3, alignItems: 'center', justifyContent: 'center' }}>
+        <Image
+            source={require('../../assets/image/reddit_logo.png')}
+            style={{  height: 20, width: 60  }}
+            />
     </View>
 
     <TouchableOpacity style={{ flex: 1 }}>
@@ -31,8 +34,8 @@ const styles = {
   viewStyle: {
     alignItems: 'center',
     justifyContent: 'center',
-    height: 92,
-    flexDirection: 'row'
+    height: 50,
+    flexDirection: 'row',
   },
   headerTextStyle: {
     textAlign: 'center',
