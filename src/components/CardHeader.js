@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import { Avatar, Icon } from 'react-native-elements';
 
 
-const CardHeader = () => {
+const CardHeader = ({ namePrefix, title, user }) => {
   const { containerStyle } = styles;
   return(
     <View style={containerStyle}>
@@ -17,8 +17,8 @@ const CardHeader = () => {
       </View>
 
       <View style={{ flex: 5 }} >
-        <Text>  Ahdul the Best  </Text>
-        <Text>  creed95  </Text>
+        <Text>  { namePrefix } </Text>
+        <Text>  u/ { user }  </Text>
       </View>
 
       <View style={{ flex: 1 }}>
