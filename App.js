@@ -2,6 +2,7 @@ import React from 'react';
 import { View,StatusBar } from 'react-native';
 import Home from './src/components/Home';
 
+
 export default class App extends React.Component {
   render() {
     return (
@@ -22,7 +23,8 @@ const styles = {
   container: {
     flex: 1,
     backgroundColor: '#000',
-    flexDirection: "column",
+    flexDirection: 'column',
     marginTop: StatusBar.currentHeight,
   },
 };
+

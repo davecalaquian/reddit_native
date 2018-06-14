@@ -1,71 +1,22 @@
 import React from 'react';
-import { View, TouchableOpacity } from 'react-native';
-import { Icon } from 'react-native-elements';
+import { View } from 'react-native';
 
-const Footer = () => {
+
+const Footer = (props) => {
 
   const { footerStyle } = styles;
 
 return (
     <View style={footerStyle}>
-      <TouchableOpacity style={{ flex: 1 }}>
-        <Icon
-          name='reddit-alien'
-          type='font-awesome'
-          color='#FF473D'
-          size={27}
-        />
-      </TouchableOpacity>
-
-      <TouchableOpacity style={{ flex: 1 }}>
-        <Icon
-          name='grid'
-          type='entypo'
-          color='#FF473D'
-          size={28}
-        />
-      </TouchableOpacity>
-
-      <TouchableOpacity style={{ flex: 1 }}>
-        <Icon
-          name='ios-text'
-          type='ionicon'
-          color='#FF473D'
-          size={28}
-        />
-      </TouchableOpacity>
-
-      <TouchableOpacity style={{ flex: 1 }}>
-        <Icon
-          name='mail'
-          type='entypo'
-          color='#FF473D'
-          size={28}
-        />
-      </TouchableOpacity>
-
-      <TouchableOpacity style={{ flex: 1 }}>
-        <Icon
-          name='user'
-          type='font-awesome'
-          color='#FF473D'
-          size={28}
-        />
-      </TouchableOpacity>
-
+      {props.children}
     </View>
   );
 };
 
 const styles = {
   footerStyle: {
-    // position: 'absolute',
-    left: 0,
-    right: 0,
-    bottom: 0,
     backgroundColor: '#fff',
-    height: 60,
-    padding: 20,
+    height: 56,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
