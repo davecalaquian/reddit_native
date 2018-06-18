@@ -24,10 +24,10 @@ class CardSection extends Component {
           </View>
 
           <View style={imageStyle}>
-          <Image
-              source={{uri: thumbnail }}
-              style={{ width: 340, height: 200}}
-              />
+              <Image
+                  source={{uri: thumbnail }}
+                  style={{ width: 100, height: 100 }}
+                  />
           </View>
 
           <View style={cardContainStyle}>
@@ -77,8 +77,8 @@ const styles = {
       height: 250,
     },
     imageStyle: {
-      left: 10,
-      top: 55,
+      left: 30,
+      top: 65,
       position: 'absolute',
     },
     cardContainStyle:{

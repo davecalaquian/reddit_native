@@ -1,6 +1,7 @@
 import React from 'react';
 import { View,StatusBar } from 'react-native';
 import Home from './src/components/Home';
+import Welcome from './src/components/Welcome';
 
 
 export default class App extends React.Component {
@@ -12,8 +13,8 @@ export default class App extends React.Component {
          barStyle="default"
        />
 
-       <Home />
-       
+         <Home />
+
       </View>
     );
   }
@@ -27,4 +28,3 @@ const styles = {
     marginTop: StatusBar.currentHeight,
   },
 };
-
