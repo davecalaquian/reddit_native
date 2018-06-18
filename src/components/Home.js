@@ -18,11 +18,38 @@ class Home extends React.Component {
   }
 
   renderContent(){
-    return this.state.redditPost.map( redditPost =>
-      <CardSection
-          key={ redditPost.data.subreddit_id }
-          data={ redditPost } />
-    );
+    let count = 1;
+    return this.state.redditPost.map((redditPost) => {
+      switch (count) {
+        case 1:
+          count = 2;
+          return (
+            <CardSection
+            key={ redditPost.data.subreddit_id }
+            data={ redditPost }
+            styleProps={1} />
+          );
+          break;
+        case 2:
+          count = 3;
+          return (
+            <CardSection
+            key={ redditPost.data.subreddit_id }
+            data={ redditPost }
+            styleProps={2} />
+          );
+          break;
+        default:
+
+      }
+
+    });
+    // return\ this.state.redditPost.map( redditPost => ()
+      // console.log(redditPost);
+      // <CardSection
+      //     key={ redditPost.data.subreddit_id }
+      //     data={ redditPost } />
+    // });
   }
 
   render(){

@@ -8,15 +8,38 @@ class CardSection extends Component {
   constructor(props){
     super();
     // console.log(props.data.data.title);
+    this.conditionalStyle = this.conditionalStyle.bind(this);
+    this.renderContent = this.renderContent.bind(this);
+  }
+
+  conditionalStyle(){
+    const { TileStyleYellow, TileStyleBlue } = dynamicStyle;
+    switch (this.props.styleProps) {
+      case 1:
+        // console.log("1");
+        return TileStyleYellow;
+      break;
+      case 2:
+        return TileStyleBlue;
+        // console.log("2");
+      break;
+      default:
+    }
+
+  }
+
+  renderContent(){
+
   }
 
   render() {
-    const  { TileStyle, leftbtn, rightbtn, cardContainStyle, imageStyle } = styles;
+    const  { leftbtn, rightbtn, cardContainStyle, imageStyle } = styles;
     const { title, author, subreddit_name_prefixed, thumbnail } = this.props.data.data;
     return (
       <View>
-          <View style={TileStyle} >
+          <View style={this.conditionalStyle()} >
               <CardHeader namePrefix={subreddit_name_prefixed} title={title} user={author}/>
+
           </View>
 
           <View>
@@ -28,6 +51,7 @@ class CardSection extends Component {
                   source={{uri: thumbnail }}
                   style={{ width: 100, height: 100 }}
                   />
+
           </View>
 
           <View style={cardContainStyle}>
@@ -41,7 +65,7 @@ class CardSection extends Component {
                 <TouchableOpacity>
                     <Image
                         source={require('../assets/image/down-button.png')}
-                        style={{ width: 54, height: 54 }}
+                        style={{ width: 54, height: 54, borderRadius: 9 }}
                         />
                 </TouchableOpacity>
             </View>
@@ -66,16 +90,29 @@ class CardSection extends Component {
   }
 }
 
+const dynamicStyle = {
+  TileStyleYellow: {
+    backgroundColor: '#FFD93E',
+    padding: 5,
+    marginLeft: 10,
+    marginRight: 10,
+    borderTopLeftRadius: 9,
+    borderTopRightRadius: 9,
+    height: 250,
+  },
+  TileStyleBlue: {
+    backgroundColor: '#0074CD',
+    padding: 5,
+    marginLeft: 10,
+    marginRight: 10,
+    borderTopLeftRadius: 9,
+    borderTopRightRadius: 9,
+    height: 250,
+  },
+}
+
 const styles = {
-    TileStyle: {
-      backgroundColor: '#FFD93E',
-      padding: 5,
-      marginLeft: 10,
-      marginRight: 10,
-      borderTopLeftRadius: 9,
-      borderTopRightRadius: 9,
-      height: 250,
-    },
+
     imageStyle: {
       left: 30,
       top: 65,
