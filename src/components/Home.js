@@ -27,7 +27,7 @@ class Home extends React.Component {
             <CardSection
             key={ redditPost.data.subreddit_id }
             data={ redditPost }
-            styleProps={1} />
+            styleType={1} />
           );
           break;
         case 2:
@@ -36,7 +36,16 @@ class Home extends React.Component {
             <CardSection
             key={ redditPost.data.subreddit_id }
             data={ redditPost }
-            styleProps={2} />
+            styleType={2} />
+          );
+          break;
+        case 3:
+          count = 1;
+          return (
+            <CardSection
+            key={ redditPost.data.subreddit_id }
+            data={ redditPost }
+            styleType={3} />
           );
           break;
         default:
@@ -44,12 +53,6 @@ class Home extends React.Component {
       }
 
     });
-    // return\ this.state.redditPost.map( redditPost => ()
-      // console.log(redditPost);
-      // <CardSection
-      //     key={ redditPost.data.subreddit_id }
-      //     data={ redditPost } />
-    // });
   }
 
   render(){

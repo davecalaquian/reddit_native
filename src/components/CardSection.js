@@ -1,58 +1,80 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, Image  } from 'react-native';
-import { Tile, Card } from 'react-native-elements';
+import { Icon } from 'react-native-elements';
 import CardHeader  from './CardHeader';
+import CardBody from './CardBody';
 import CardFooter from './CardFooter';
 
 class CardSection extends Component {
   constructor(props){
-    super();
-    // console.log(props.data.data.title);
-    this.conditionalStyle = this.conditionalStyle.bind(this);
-    this.renderContent = this.renderContent.bind(this);
+      super();
+      this.state = {
+        // bar: ''
+      }
+      this.conditionalStyle = this.conditionalStyle.bind(this);
   }
 
   conditionalStyle(){
     const { TileStyleYellow, TileStyleBlue } = dynamicStyle;
-    switch (this.props.styleProps) {
-      case 1:
-        // console.log("1");
-        return TileStyleYellow;
-      break;
-      case 2:
-        return TileStyleBlue;
-        // console.log("2");
-      break;
-      default:
-    }
+    const { title, author, subreddit_name_prefixed, thumbnail } = this.props.data.data;
 
-  }
-
-  renderContent(){
-
+      switch (this.props.styleType) {
+        case 1:
+        return (
+            <View style={TileStyleYellow} >
+                <View style={{ position: 'absolute', right: 10, top: 10}}>
+                  <Icon
+                    name='dots-three-vertical'
+                    type='entypo'
+                    color='#111111'
+                     />
+                </View>
+                <CardHeader namePrefix={subreddit_name_prefixed} title={title} user={author} styleType={this.props.styleType} />
+                <CardBody title={title} thumbnail={thumbnail} styleType={this.props.styleType} />
+            </View>);
+        break;
+        case 2:
+        return (
+          <View style={TileStyleBlue} >
+              <View style={{ position: 'absolute', right: 10, top: 10}}>
+                <Icon
+                  name='dots-three-vertical'
+                  type='entypo'
+                  color='#FFFFFF'
+                   />
+              </View>
+              <CardHeader namePrefix={subreddit_name_prefixed} title={title} user={author} styleType={this.props.styleType} />
+              <CardBody title={title} thumbnail={thumbnail} styleType={this.props.styleType} />
+          </View>);
+        break;
+        case 3:
+        return (
+          <View style={TileStyleBlue} >
+              <View style={{ position: 'absolute', right: 10, top: 10}}>
+                <Icon
+                  name='dots-three-vertical'
+                  type='entypo'
+                  color='#FFFFFF'
+                   />
+              </View>
+              <CardBody title={title} thumbnail={thumbnail} styleType={this.props.styleType} />
+              <CardHeader namePrefix={subreddit_name_prefixed} title={title} user={author} styleType={this.props.styleType} />
+          </View>);
+        break;
+        default:
+      }
   }
 
   render() {
-    const  { leftbtn, rightbtn, cardContainStyle, imageStyle } = styles;
-    const { title, author, subreddit_name_prefixed, thumbnail } = this.props.data.data;
+    const  { leftbtn, rightbtn, cardContainStyle } = styles;
     return (
-      <View>
-          <View style={this.conditionalStyle()} >
-              <CardHeader namePrefix={subreddit_name_prefixed} title={title} user={author}/>
+      <View >
 
-          </View>
+            {this.conditionalStyle()}
 
-          <View>
-            <CardFooter />
-          </View>
-
-          <View style={imageStyle}>
-              <Image
-                  source={{uri: thumbnail }}
-                  style={{ width: 100, height: 100 }}
-                  />
-
-          </View>
+            <View>
+              <CardFooter />
+            </View>
 
           <View style={cardContainStyle}>
             <View style={leftbtn}>
@@ -65,7 +87,7 @@ class CardSection extends Component {
                 <TouchableOpacity>
                     <Image
                         source={require('../assets/image/down-button.png')}
-                        style={{ width: 54, height: 54, borderRadius: 9 }}
+                        style={{ width: 54, height: 54 }}
                         />
                 </TouchableOpacity>
             </View>
@@ -98,7 +120,7 @@ const dynamicStyle = {
     marginRight: 10,
     borderTopLeftRadius: 9,
     borderTopRightRadius: 9,
-    height: 250,
+    height: 247,
   },
   TileStyleBlue: {
     backgroundColor: '#0074CD',
@@ -107,17 +129,11 @@ const dynamicStyle = {
     marginRight: 10,
     borderTopLeftRadius: 9,
     borderTopRightRadius: 9,
-    height: 250,
+    height: 247,
   },
 }
 
 const styles = {
-
-    imageStyle: {
-      left: 30,
-      top: 65,
-      position: 'absolute',
-    },
     cardContainStyle:{
       flexDirection: "row",
     },

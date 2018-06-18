@@ -16,7 +16,7 @@ const styles = {
   containerStyle: {
     alignItems: 'center',
     justifyContent: 'center',
-    height: 50,
+    height: 48,
     borderBottomLeftRadius: 9,
     borderBottomRightRadius: 9,
     marginLeft: 10,
