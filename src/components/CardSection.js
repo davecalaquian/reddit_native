@@ -45,12 +45,12 @@ class CardSection extends Component {
               <CardBody title={title} thumbnail={thumbnail} styleType={this.props.styleType} />
           </View>);
         break;
-        case 3:
+        case 5:
         return (
           <View style={TileStyle}>
 
               <ImageBackground source={{ uri: this.props.data.data.preview.images[0].source.url }} style={{ height: 180, borderTopLeftRadius: 9, borderTopRightRadius: 9, }} imageStyle={{ borderTopLeftRadius: 9, borderTopRightRadius: 9 }}>
-                  <Text style={{ fontSize: 20, color: '#ffffff', paddingTop: 30, paddingLeft: 10, paddingRight: 25 }}>{title}  </Text>
+                  <Text style={{ fontSize: 20, color: '#ffffff', paddingTop: 30, paddingLeft: 20, paddingRight: 25 }}>{title}  </Text>
               </ImageBackground>
 
               <View style={{ position: 'absolute', right: 10, top: 10}}>
@@ -71,7 +71,7 @@ class CardSection extends Component {
     const { title, author, subreddit_name_prefixed } = this.props.data.data;
 
     switch (this.props.styleType) {
-      case 3:
+      case 5:
         return (
           <CardFooter styleType={this.props.styleType}>
             <CardHeader namePrefix={subreddit_name_prefixed} title={title} user={author} styleType={this.props.styleType} />

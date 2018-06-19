@@ -27,7 +27,6 @@ class Home extends React.Component {
       if (count <= 5) {
         switch (count) {
           case 1:
-            // count = 2;
             return (
               <CardSection
               key={redditPost.data.name}
@@ -37,7 +36,6 @@ class Home extends React.Component {
             );
 
           case 2:
-            // count = 3;
             return (
               <CardSection
               key={redditPost.data.name}
@@ -58,7 +56,6 @@ class Home extends React.Component {
                 </View>
               );
             case 4:
-              // count = 4;
               return (
                 <View style={{ flexDirection: 'column' }}>
                   <SmallCard
@@ -71,12 +68,11 @@ class Home extends React.Component {
               );
 
             case 5:
-              // count = 1;
               return (
                 <CardSection
                 key={redditPost.data.name}
                 data={redditPost}
-                styleType={3}
+                styleType={5}
                 />
               );
 

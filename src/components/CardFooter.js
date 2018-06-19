@@ -11,7 +11,7 @@ class CardFooter extends React.Component{
     const { containerStyle, containerStyleTwo } = styles;
 
     switch (this.props.styleType) {
-      case 3:
+      case 5:
         return <View style={containerStyleTwo}>{this.props.children}</View>;
       break;
       default:
@@ -44,7 +44,7 @@ const styles = {
     borderBottomLeftRadius: 9,
     borderBottomRightRadius: 9,
     marginLeft: 10,
-    marginBottom: 5,
+    marginBottom: 13,
     marginRight: 10,
     paddingLeft: 5,
     paddingRight: 5,

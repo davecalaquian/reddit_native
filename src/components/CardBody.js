@@ -43,7 +43,7 @@ class CardBody extends React.Component {
         </View>
       );
       break;
-      case 3:
+      case 5:
       return (
         <View style={{ flex:1, flexDirection: 'row', padding: 10 }}>
             <View style={{ flex:1 ,  alignItems: 'center'}}>
