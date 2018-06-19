@@ -1,8 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView, StatusBar, TouchableOpacity , Image} from 'react-native';
-import { Header, Footer } from './src/components/common';
-import { Icon } from 'react-native-elements';
-import CardSection from './src/components/CardSection';
+import { View,StatusBar } from 'react-native';
+import Home from './src/components/Home';
+import Welcome from './src/components/Welcome';
 
 
 export default class App extends React.Component {
@@ -14,37 +13,18 @@ export default class App extends React.Component {
          barStyle="default"
        />
 
-
-        <Header />
-        <ScrollView>
-          <CardSection/>
-          <CardSection/>
-          <CardSection/>
-        </ScrollView>
-        <TouchableOpacity style={styles.addWidgetStyle}>
-        <Image
-            source={require('./src/assets/image/addButton.png')}
-            style={{ width: 54, height: 54 }}
-            />
-        </TouchableOpacity>
-        <Footer />
-
+         <Home />
 
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
+const styles = {
   container: {
     flex: 1,
     backgroundColor: '#000',
-    flexDirection: "column",
+    flexDirection: 'column',
     marginTop: StatusBar.currentHeight,
   },
-  addWidgetStyle: {
-    position: 'absolute',
-    right: 20,
-    bottom: 75
-  }
-});
+};
