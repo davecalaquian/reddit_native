@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import numeral from 'numeral';
-import { View, Text, TouchableOpacity, Image } from 'react-native';
+import { View, Text, TouchableOpacity, Image, ActivityIndicator } from 'react-native';
 
 class SmallCard extends Component {
 
@@ -10,7 +10,8 @@ class SmallCard extends Component {
     this.state = {
       sub_description: '',
       sub_image: 'http://i.imgur.com/3NtinwD.png',
-      sub_subscribers: 0
+      sub_subscribers: 0,
+      loading: true
     };
   }
 
@@ -33,8 +34,17 @@ class SmallCard extends Component {
     });
   }
 
+  componentDidMount() {
+    this.setState({
+      loading: false
+    });
+  }
+
 
   render() {
+    if (this.state.loading) {
+      return (<ActivityIndicator size="small" color="#00ff00" />);
+    } else {
     if (this.props.style === 1) {
       return (
           <View style={styles.viewStyle1}>
@@ -93,6 +103,7 @@ class SmallCard extends Component {
           </View>
         </View>
       );
+    }
   }
 
 }
