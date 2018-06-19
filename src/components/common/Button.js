@@ -1,7 +1,7 @@
 import React from 'react';
 import { TouchableOpacity, Button } from 'react-native';
 
-const SButton = (props) => {
+const SButton = props => {
   const { buttonStyle, textStyle } = styles;
   return (
     <TouchableOpacity style={buttonStyle}>
@@ -20,7 +20,7 @@ const styles = {
     width: 146,
     margin: 15,
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   textStyle: {
     fontSize: 14,
