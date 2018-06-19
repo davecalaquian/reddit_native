@@ -30,7 +30,7 @@ class Home extends React.Component {
             // count = 2;
             return (
               <CardSection
-              key={`${count}{redditPost.data.name}`}
+              key={redditPost.data.name}
               data={redditPost}
               styleType={1}
               />
@@ -40,7 +40,7 @@ class Home extends React.Component {
             // count = 3;
             return (
               <CardSection
-              key={`${count}{redditPost.data.name}`}
+              key={redditPost.data.name}
               data={redditPost}
               styleType={2}
               />
@@ -50,7 +50,7 @@ class Home extends React.Component {
               return (
                 <View style={{ flexDirection: 'column' }}>
                   <SmallCard
-                  key={`${count}{redditPost.data.name}`}
+                  key={redditPost.data.name}
                   data={redditPost}
                   style={1}
                   subreddit={redditPost.data.subreddit}
@@ -62,7 +62,7 @@ class Home extends React.Component {
               return (
                 <View style={{ flexDirection: 'column' }}>
                   <SmallCard
-                  key={`${count}{redditPost.data.name}`}
+                  key={redditPost.data.name}
                   data={redditPost}
                   style={2}
                   subreddit={redditPost.data.subreddit}
@@ -74,7 +74,7 @@ class Home extends React.Component {
               // count = 1;
               return (
                 <CardSection
-                key={`${count}{redditPost.data.name}`}
+                key={redditPost.data.name}
                 data={redditPost}
                 styleType={3}
                 />
