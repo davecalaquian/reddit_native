@@ -29,26 +29,21 @@ class Welcome extends Component {
               color='#FF473D'
               size={63}
             />
-            <Text style={styles.textTitleStyle}>  Welcome!  </Text>
-            <Text style={styles.textContentStyle}>  There's a Reddit community for every topic imaginable  </Text>
+            <Text style={styles.textTitleStyle}>  Welcome! </Text>
+            <Text style={styles.textContentStyle}>  There's a Reddit community for every topic imaginable </Text>
 
-            <Text style={styles.textTitleStyle}>  Vote!  </Text>
-            <Text style={styles.textContentStyle}>  on posts and help communities lift the best content to the top  </Text>
+            <Text style={styles.textTitleStyle}>  Vote! </Text>
+            <Text style={styles.textContentStyle}>  on posts and help communities lift the best content to the top </Text>
 
-            <Text style={styles.textTitleStyle}>  Subscribe!  </Text>
-            <Text style={styles.textContentStyle}>  to communities to fill this home feed with fresh posts  </Text>
+            <Text style={styles.textTitleStyle}>  Subscribe! </Text>
+            <Text style={styles.textContentStyle}>  to communities to fill this home feed with fresh posts </Text>
           </View>
 
           <View style={styles.buttonGroup}>
-            <Button style={{ flex: 1 }}>
-              LOG IN
-            </Button>
-            <Button style={{ flex: 1 }}>
-              SIGN UP
-            </Button>
+            <SButton style={{ flex: 1 }} onPress={() => this.props.history.push('/login')} title="LOG IN" />
+            <SButton style={{ flex: 1 }} onPress={() => this.props.history.push('/register')} title="SIGN UP" />
           </View>
         </View>
-
 
 
         <View >
