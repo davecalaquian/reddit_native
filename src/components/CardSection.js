@@ -168,13 +168,13 @@ const styles = {
     leftbtn: {
       position: 'absolute',
       left: 30,
-      bottom: 25,
+      bottom: 35,
       flexDirection: 'row',
     },
     rightbtn: {
       position: 'absolute',
       right: 30,
-      bottom: 25,
+      bottom: 35,
       flexDirection: 'row',
     }
 };

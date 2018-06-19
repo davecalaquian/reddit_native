@@ -23,20 +23,16 @@ class SmallCard extends Component {
           this.setState({
           sub_description: res.data.data.public_description,
           sub_image: res.data.data.icon_img,
-          sub_subscribers: res.data.data.active_user_count
+          sub_subscribers: res.data.data.subscribers,
+          loading: false
           });
         } else {
           this.setState({
           sub_description: res.data.data.public_description,
-          sub_subscribers: res.data.data.active_user_count
+          sub_subscribers: res.data.data.subscribers,
+          loading: false
           });
         }
-    });
-  }
-
-  componentDidMount() {
-    this.setState({
-      loading: false
     });
   }
 
@@ -44,15 +40,45 @@ class SmallCard extends Component {
   render() {
     if (this.state.loading) {
       return (<ActivityIndicator size="small" color="#00ff00" />);
-    } else {
+    }
+
     if (this.props.style === 1) {
       return (
-          <View style={styles.viewStyle1}>
-            <TouchableOpacity style={{ flex: 2 }}>
-              <Text style={styles.subStyle1}>+ SUBSCRIBE</Text>
+            <View style={styles.viewStyle1}>
+              <TouchableOpacity style={{ flex: 2 }}>
+                <Text style={styles.subStyle1}>+ SUBSCRIBE</Text>
+              </TouchableOpacity>
+              <Text
+                style={styles.textStyle1}
+                numberOfLines={2}
+                ellipsizeMode='tail'
+              >
+              {this.state.sub_description}
+              </Text>
+              <View style={{ flex: 2, flexDirection: 'row' }}>
+                <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-start' }}>
+                  <Image
+                    style={styles.imageStyle}
+                    source={{ uri: this.state.sub_image }}
+                  />
+                </View>
+                <View style={{ flex: 2 }}>
+                    <Text style={{ flex: 2, color: '#fff' }}>r/{this.props.subreddit}</Text>
+                    <Text style={styles.countStyle1}>
+                      {numeral(this.state.sub_subscribers).format('0.0a')} subscribers
+                    </Text>
+                  </View>
+                </View>
+            </View>
+      );
+    } else if (this.props.style === 2) {
+      return (
+        <View style={styles.viewStyle2}>
+            <TouchableOpacity>
+              <Text style={styles.subStyle2}>+ SUBSCRIBE</Text>
             </TouchableOpacity>
             <Text
-              style={styles.textStyle1}
+              style={styles.textStyle2}
               numberOfLines={2}
               ellipsizeMode='tail'
             >
@@ -66,77 +92,55 @@ class SmallCard extends Component {
                 />
               </View>
               <View style={{ flex: 2 }}>
-                  <Text style={{ flex: 2, color: '#fff' }}>r/{this.props.subreddit}</Text>
-                  <Text style={styles.countStyle1}>
-                    {numeral(this.state.sub_subscribers).format('0.0a')} subscribers
-                  </Text>
-                </View>
+                <Text style={{ flex: 2 }}>r/{this.props.subreddit}</Text>
+                <Text style={styles.countStyle2}>
+                  {numeral(this.state.sub_subscribers).format('0.0a')} subscribers
+                </Text>
               </View>
+            </View>
           </View>
       );
-    }
+    } else if (this.props.style === 3) {
       return (
-        <View style={styles.viewStyle2}>
-          <TouchableOpacity style={{ flex: 2 }}>
-            <Text style={styles.subStyle2}>+ SUBSCRIBE</Text>
-          </TouchableOpacity>
-          <Text
-            style={styles.textStyle2}
-            numberOfLines={2}
-            ellipsizeMode='tail'
-          >
-          {this.state.sub_description}
-          </Text>
-          <View style={{ flex: 2, flexDirection: 'row' }}>
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-start' }}>
-              <Image
-                style={styles.imageStyle}
-                source={{ uri: this.state.sub_image }}
-              />
-            </View>
-            <View style={{ flex: 2 }}>
-              <Text style={{ flex: 2 }}>r/{this.props.subreddit}</Text>
-              <Text style={styles.countStyle2}>
-                {numeral(this.state.sub_subscribers).format('0.0a')} subscribers
-              </Text>
+          <View style={styles.viewStyle3}>
+            <TouchableOpacity style={{ flex: 2 }}>
+              <Text style={styles.subStyle3}>+ SUBSCRIBE</Text>
+            </TouchableOpacity>
+            <Text
+              style={styles.textStyle2}
+              numberOfLines={2}
+              ellipsizeMode='tail'
+            >
+            {this.state.sub_description}
+            </Text>
+            <View style={{ flex: 2, flexDirection: 'row' }}>
+              <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-start' }}>
+                <Image
+                  style={styles.imageStyle}
+                  source={{ uri: this.state.sub_image }}
+                />
+              </View>
+              <View style={{ flex: 2 }}>
+                <Text style={{ flex: 2 }}>r/{this.props.subreddit}</Text>
+                <Text style={styles.countStyle2}>
+                  {numeral(this.state.sub_subscribers).format('0.0a')} subscribers
+                </Text>
+              </View>
             </View>
           </View>
-        </View>
+      );
+    } else if (this.props.style === 4) {
+      return (
+          <View style={styles.viewStyle4}>
+            <Image
+              style={styles.backgroundImage}
+              source={{ uri: this.state.sub_image }}
+            />
+          </View>
       );
     }
   }
-
 }
-
-
-// const SmallCard = (props) => {
-//   const {
-//     viewStyle1,
-//     textStyle1,
-//     viewStyle2,
-//     textStyle2,
-//     subStyle1,
-//     subStyle2 } = styles;
-//
-//   if (props.style === 1) {
-//     return (
-//         <View style={viewStyle1}>
-//           <TouchableOpacity>
-//             <Text style={subStyle1}>+ SUBSCRIBE</Text>
-//           </TouchableOpacity>
-//           <Text style={textStyle1}>/r/{props.data.data.subreddit}</Text>
-//         </View>
-//     );
-//   }
-//     return (
-//       <View style={viewStyle2}>
-//         <TouchableOpacity>
-//           <Text style={subStyle2}>+ SUBSCRIBE</Text>
-//         </TouchableOpacity>
-//         <Text style={textStyle2}>/r/{props.data.data.subreddit}</Text>
-//       </View>
-//     );
-// };
 
 const styles = {
   imageStyle: {
@@ -146,15 +150,10 @@ const styles = {
   },
   viewStyle1: {
     height: 148,
-    width: 176,
     padding: 20,
     backgroundColor: '#0074CD',
     borderRadius: 8,
-    flex: 1,
-    flexDirection: 'column',
-    marginBottom: 10,
-    marginRight: 10,
-    marginLeft: 10
+    flexDirection: 'column'
   },
   subStyle1: {
     color: '#fff',
@@ -182,15 +181,10 @@ const styles = {
   },
   viewStyle2: {
     height: 148,
-    width: 176,
     padding: 20,
     backgroundColor: '#FFD93E',
     borderRadius: 8,
-    flex: 1,
-    flexDirection: 'column',
-    marginBottom: 10,
-    marginRight: 10,
-    marginLeft: 10
+    flexDirection: 'column'
   },
   subStyle2: {
     color: '#000',
@@ -203,6 +197,28 @@ const styles = {
     letterSpacing: 0,
     lineHeight: 22,
     flex: 3
+  },
+  viewStyle3: {
+    padding: 20,
+    height: 150,
+    backgroundColor: '#fff',
+    borderBottomLeftRadius: 8,
+    borderBottomRightRadius: 8,
+  },
+  viewStyle4: {
+    height: 155
+  },
+  subStyle3: {
+    color: '#000',
+    fontSize: 12,
+    letterSpacing: 0.5,
+    lineHeight: 18
+  },
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover',
+    borderTopLeftRadius: 8,
+    borderTopRightRadius: 8
   }
 };
 
