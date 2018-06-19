@@ -46,9 +46,8 @@ class Home extends React.Component {
 
             case 3:
               return (
-                <View style={{ flexDirection: 'column' }}>
+                <View key={redditPost.data.name} style={{ flexDirection: 'column' }}>
                   <SmallCard
-                  key={redditPost.data.name}
                   data={redditPost}
                   style={1}
                   subreddit={redditPost.data.subreddit}
@@ -57,9 +56,8 @@ class Home extends React.Component {
               );
             case 4:
               return (
-                <View style={{ flexDirection: 'column' }}>
+                <View key={redditPost.data.name} style={{ flexDirection: 'column' }}>
                   <SmallCard
-                  key={redditPost.data.name}
                   data={redditPost}
                   style={2}
                   subreddit={redditPost.data.subreddit}
