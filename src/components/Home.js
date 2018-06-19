@@ -10,25 +10,27 @@ import SmallCard from './SmallCard';
 class Home extends React.Component {
   state = {
       redditPost: [],
-      loading: true,
+      loading: true
   }
 
   componentWillMount() {
-    axios.get('https://api.reddit.com/')
-    .then(res => this.setState({ redditPost: res.data.data.children, loading: false }));
+    axios.get('https://reddit.com/r/all.json')
+    .then(res => this.setState({
+      redditPost: res.data.data.children,
+      loading: false }));
   }
 
   renderContent() {
     let count = 0;
     return this.state.redditPost.map((redditPost) => {
       count++;
-      if (count <= 4) {
+      if (count <= 5) {
         switch (count) {
           case 1:
             // count = 2;
             return (
               <CardSection
-              key={redditPost.data.subreddit_id}
+              key={`${count}{redditPost.data.name}`}
               data={redditPost}
               styleType={1}
               />
@@ -38,28 +40,43 @@ class Home extends React.Component {
             // count = 3;
             return (
               <CardSection
-              key={redditPost.data.subreddit_id}
+              key={`${count}{redditPost.data.name}`}
               data={redditPost}
               styleType={2}
               />
             );
 
-          case 3:
-            // count = 1;
-            return (
-              <CardSection
-              key={redditPost.data.subreddit_id}
-              data={redditPost}
-              styleType={3}
-              />
-            );
-
+            case 3:
+              return (
+                <View style={{ flexDirection: 'column' }}>
+                  <SmallCard
+                  key={`${count}{redditPost.data.name}`}
+                  data={redditPost}
+                  style={1}
+                  subreddit={redditPost.data.subreddit}
+                  />
+                </View>
+              );
             case 4:
               // count = 4;
               return (
-                <SmallCard
-                key={redditPost.data.subreddit_id}
+                <View style={{ flexDirection: 'column' }}>
+                  <SmallCard
+                  key={`${count}{redditPost.data.name}`}
+                  data={redditPost}
+                  style={2}
+                  subreddit={redditPost.data.subreddit}
+                  />
+                </View>
+              );
+
+            case 5:
+              // count = 1;
+              return (
+                <CardSection
+                key={`${count}{redditPost.data.name}`}
                 data={redditPost}
+                styleType={3}
                 />
               );
 
