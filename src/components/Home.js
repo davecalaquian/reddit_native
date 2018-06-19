@@ -79,8 +79,6 @@ class Home extends React.Component {
             default:
               break;
         }
-      } else {
-        count = 0;
       }
     });
   }
@@ -138,7 +136,7 @@ class Home extends React.Component {
               <Icon
                 name='reddit-alien'
                 type='font-awesome'
-                color='#5f6063'
+                color='#FF473D'
                 size={28}
               />
             </TouchableOpacity>
@@ -156,7 +154,7 @@ class Home extends React.Component {
               <Icon
                 name='bubble'
                 type='simple-line-icon'
-                color='#5f6063'
+                color='#FF473D'
                 size={28}
               />
             </TouchableOpacity>
@@ -165,7 +163,7 @@ class Home extends React.Component {
               <Icon
                 name='mail'
                 type='feather'
-                color='#5f6063'
+                color='#FF473D'
                 size={28}
               />
             </TouchableOpacity>
@@ -174,7 +172,7 @@ class Home extends React.Component {
               <Icon
                 name='user-o'
                 type='font-awesome'
-                color='#5f6063'
+                color='#FF473D'
                 size={28}
               />
             </TouchableOpacity>
