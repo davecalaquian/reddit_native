@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native';
 import { Icon } from 'react-native-elements';
-import { Header, Footer, Button } from './common';
+import { Header, Footer, SButton } from './common';
 
 class Welcome extends Component {
 
   render() {
+    console.log(this.props);
     return (
       <View style={{ flex: 1 }}>
         <View >
@@ -18,6 +19,7 @@ class Welcome extends Component {
             </View>
           </Header>
         </View>
+
 
         <View style={{ flex: 1 }}>
           <View style={styles.contentStyle}>
@@ -45,7 +47,6 @@ class Welcome extends Component {
               SIGN UP
             </Button>
           </View>
-
         </View>
 
 
