@@ -41,6 +41,7 @@ class SmallCard extends Component {
     if (this.state.loading) {
       return (<ActivityIndicator size="small" color="#00ff00" />);
     }
+
     if (this.props.style === 1) {
       return (
             <View style={styles.viewStyle1}>

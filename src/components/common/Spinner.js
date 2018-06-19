@@ -1,19 +1,21 @@
 import React from 'react';
-import { View, ActivityIndicator } from 'react-native';
+import { View, ActivityIndicator, Platform } from 'react-native';
 
-const Spinner = ({ size }) => {
-  return (
-    <View style={styles.spinnerStyle}>
-        <ActivityIndicator size={100} color="#FF473D" />
-    </View>
-  );
-}
-
-const styles = {
-  spinnerStyle: {
-    // justifyContent: 'center',
-    // alignItems: 'center'
+const Spinner = ({ size, spinnerActivity }) => {
+  if (Platform.OS == 'android'){
+    return (
+      <View >
+          <ActivityIndicator size={100} color="#FF473D"/>
+      </View>
+    );
+  }else{
+    return (
+      <View >
+          <ActivityIndicator color="#FF473D"/>
+      </View>
+    );
   }
+
 }
 
 export { Spinner };

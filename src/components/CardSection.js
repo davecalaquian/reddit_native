@@ -49,7 +49,7 @@ class CardSection extends Component {
         return (
           <View style={TileStyle}>
 
-              <ImageBackground source={{ uri: this.props.data.data.preview.images[0].source.url }} style={{ height: 180, borderTopLeftRadius: 9, borderTopRightRadius: 9, }} imageStyle={{ borderTopLeftRadius: 9, borderTopRightRadius: 9, opacity: 0.5 }}>
+              <ImageBackground source={{ uri: this.props.data.data.preview.images[0].source.url }} style={{ height: 180, borderTopLeftRadius: 9, borderTopRightRadius: 9, }} imageStyle={{ borderTopLeftRadius: 9, borderTopRightRadius: 9 }}>
                   <Text style={{ fontSize: 20, color: '#ffffff', paddingTop: 30, paddingLeft: 20, paddingRight: 25 }}>{title}  </Text>
               </ImageBackground>
 
@@ -168,13 +168,13 @@ const styles = {
     leftbtn: {
       position: 'absolute',
       left: 30,
-      bottom: 25,
+      bottom: 35,
       flexDirection: 'row',
     },
     rightbtn: {
       position: 'absolute',
       right: 30,
-      bottom: 25,
+      bottom: 35,
       flexDirection: 'row',
     }
 };
