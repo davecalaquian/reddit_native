@@ -11,9 +11,9 @@ export default class App extends React.Component {
       <StatusBar
          backgroundColor="blue"
          barStyle="default"
-       />
+      />
 
-         <Home />
+    <Home />
 
       </View>
     );
