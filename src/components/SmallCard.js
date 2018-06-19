@@ -4,7 +4,6 @@ import numeral from 'numeral';
 import { View, Text, TouchableOpacity, Image, ActivityIndicator } from 'react-native';
 
 class SmallCard extends Component {
-
   constructor() {
     super();
     this.state = {
@@ -16,127 +15,101 @@ class SmallCard extends Component {
   }
 
   componentWillMount() {
-    axios.get(`https://api.reddit.com/r/${this.props.subreddit}/about`)
-    .then(res => {
-        const imgSrc = res.data.data.icon_img;
-        if (imgSrc !== '') {
-          this.setState({
+    axios.get(`https://api.reddit.com/r/${this.props.subreddit}/about`).then(res => {
+      const imgSrc = res.data.data.icon_img;
+      if (imgSrc !== '') {
+        this.setState({
           sub_description: res.data.data.public_description,
           sub_image: res.data.data.icon_img,
           sub_subscribers: res.data.data.subscribers,
           loading: false
-          });
-        } else {
-          this.setState({
+        });
+      } else {
+        this.setState({
           sub_description: res.data.data.public_description,
           sub_subscribers: res.data.data.subscribers,
           loading: false
-          });
-        }
+        });
+      }
     });
   }
 
-
   render() {
     if (this.state.loading) {
-      return (<ActivityIndicator size="small" color="#00ff00" />);
+      return <ActivityIndicator size="small" color="#00ff00" />;
     }
 
     if (this.props.style === 1) {
       return (
-            <View style={styles.viewStyle1}>
-              <TouchableOpacity style={{ flex: 2 }}>
-                <Text style={styles.subStyle1}>+ SUBSCRIBE</Text>
-              </TouchableOpacity>
-              <Text
-                style={styles.textStyle1}
-                numberOfLines={2}
-                ellipsizeMode='tail'
-              >
-              {this.state.sub_description}
-              </Text>
-              <View style={{ flex: 2, flexDirection: 'row' }}>
-                <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-start' }}>
-                  <Image
-                    style={styles.imageStyle}
-                    source={{ uri: this.state.sub_image }}
-                  />
-                </View>
-                <View style={{ flex: 2 }}>
-                    <Text style={{ flex: 2, color: '#fff' }}>r/{this.props.subreddit}</Text>
-                    <Text style={styles.countStyle1}>
-                      {numeral(this.state.sub_subscribers).format('0.0a')} subscribers
-                    </Text>
-                  </View>
-                </View>
+        <View style={styles.viewStyle1}>
+          <TouchableOpacity style={{ flex: 2 }}>
+            <Text style={styles.subStyle1}>+ SUBSCRIBE</Text>
+          </TouchableOpacity>
+          <Text style={styles.textStyle1} numberOfLines={2} ellipsizeMode="tail">
+            {this.state.sub_description}
+          </Text>
+          <View style={{ flex: 2, flexDirection: 'row' }}>
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-start' }}>
+              <Image style={styles.imageStyle} source={{ uri: this.state.sub_image }} />
             </View>
+            <View style={{ flex: 2 }}>
+              <Text style={{ flex: 2, color: '#fff' }}>r/{this.props.subreddit}</Text>
+              <Text style={styles.countStyle1}>
+                {numeral(this.state.sub_subscribers).format('0.0a')} subscribers
+              </Text>
+            </View>
+          </View>
+        </View>
       );
     } else if (this.props.style === 2) {
       return (
         <View style={styles.viewStyle2}>
-            <TouchableOpacity>
-              <Text style={styles.subStyle2}>+ SUBSCRIBE</Text>
-            </TouchableOpacity>
-            <Text
-              style={styles.textStyle2}
-              numberOfLines={2}
-              ellipsizeMode='tail'
-            >
+          <TouchableOpacity>
+            <Text style={styles.subStyle2}>+ SUBSCRIBE</Text>
+          </TouchableOpacity>
+          <Text style={styles.textStyle2} numberOfLines={2} ellipsizeMode="tail">
             {this.state.sub_description}
-            </Text>
-            <View style={{ flex: 2, flexDirection: 'row' }}>
-              <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-start' }}>
-                <Image
-                  style={styles.imageStyle}
-                  source={{ uri: this.state.sub_image }}
-                />
-              </View>
-              <View style={{ flex: 2 }}>
-                <Text style={{ flex: 2 }}>r/{this.props.subreddit}</Text>
-                <Text style={styles.countStyle2}>
-                  {numeral(this.state.sub_subscribers).format('0.0a')} subscribers
-                </Text>
-              </View>
+          </Text>
+          <View style={{ flex: 2, flexDirection: 'row' }}>
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-start' }}>
+              <Image style={styles.imageStyle} source={{ uri: this.state.sub_image }} />
+            </View>
+            <View style={{ flex: 2 }}>
+              <Text style={{ flex: 2 }}>r/{this.props.subreddit}</Text>
+              <Text style={styles.countStyle2}>
+                {numeral(this.state.sub_subscribers).format('0.0a')} subscribers
+              </Text>
             </View>
           </View>
+        </View>
       );
     } else if (this.props.style === 3) {
       return (
-          <View style={styles.viewStyle3}>
-            <TouchableOpacity style={{ flex: 2 }}>
-              <Text style={styles.subStyle3}>+ SUBSCRIBE</Text>
-            </TouchableOpacity>
-            <Text
-              style={styles.textStyle2}
-              numberOfLines={2}
-              ellipsizeMode='tail'
-            >
+        <View style={styles.viewStyle3}>
+          <TouchableOpacity style={{ flex: 2 }}>
+            <Text style={styles.subStyle3}>+ SUBSCRIBE</Text>
+          </TouchableOpacity>
+          <Text style={styles.textStyle2} numberOfLines={2} ellipsizeMode="tail">
             {this.state.sub_description}
-            </Text>
-            <View style={{ flex: 2, flexDirection: 'row' }}>
-              <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-start' }}>
-                <Image
-                  style={styles.imageStyle}
-                  source={{ uri: this.state.sub_image }}
-                />
-              </View>
-              <View style={{ flex: 2 }}>
-                <Text style={{ flex: 2 }}>r/{this.props.subreddit}</Text>
-                <Text style={styles.countStyle2}>
-                  {numeral(this.state.sub_subscribers).format('0.0a')} subscribers
-                </Text>
-              </View>
+          </Text>
+          <View style={{ flex: 2, flexDirection: 'row' }}>
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-start' }}>
+              <Image style={styles.imageStyle} source={{ uri: this.state.sub_image }} />
+            </View>
+            <View style={{ flex: 2 }}>
+              <Text style={{ flex: 2 }}>r/{this.props.subreddit}</Text>
+              <Text style={styles.countStyle2}>
+                {numeral(this.state.sub_subscribers).format('0.0a')} subscribers
+              </Text>
             </View>
           </View>
+        </View>
       );
     } else if (this.props.style === 4) {
       return (
-          <View style={styles.viewStyle4}>
-            <Image
-              style={styles.backgroundImage}
-              source={{ uri: this.state.sub_image }}
-            />
-          </View>
+        <View style={styles.viewStyle4}>
+          <Image style={styles.backgroundImage} source={{ uri: this.state.sub_image }} />
+        </View>
       );
     }
   }
@@ -203,7 +176,7 @@ const styles = {
     height: 150,
     backgroundColor: '#fff',
     borderBottomLeftRadius: 8,
-    borderBottomRightRadius: 8,
+    borderBottomRightRadius: 8
   },
   viewStyle4: {
     height: 155

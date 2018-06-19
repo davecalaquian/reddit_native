@@ -1,8 +1,8 @@
 import React from 'react';
 import { TouchableOpacity, Button } from 'react-native';
 
-const SButton = (props) => {
-  const { buttonStyle, textStyle } = styles;
+const SButton = props => {
+  const { buttonStyle } = styles;
   return (
     <TouchableOpacity style={buttonStyle}>
       <Button style={props.style} title={props.title} onPress={props.onPress} />
@@ -15,7 +15,7 @@ const styles = {
     // backgroundColor: '#0074CD',
     // borderRadius: 3,
     // height: 40,
-    width: 146,
+    width: 146
     // margin: 15,
     // justifyContent: 'center',
     // alignItems: 'center',
