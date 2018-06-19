@@ -20,29 +20,32 @@ class Welcome extends Component {
           </Header>
         </View>
 
-
         <View style={{ flex: 1 }}>
-          <View style={styles.contentStyle}>
-            <Icon
-              name='reddit-alien'
-              type='font-awesome'
-              color='#FF473D'
-              size={63}
-            />
-            <Text style={styles.textTitleStyle}>  Welcome! </Text>
-            <Text style={styles.textContentStyle}>  There's a Reddit community for every topic imaginable </Text>
+            <View style={styles.contentStyle}>
+              <Icon
+                name='reddit-alien'
+                type='font-awesome'
+                color='#FF473D'
+                size={63}
+              />
+              <Text style={styles.textTitleStyle}>  Welcome! </Text>
+              <Text style={styles.textContentStyle}>  There's a Reddit community for every topic imaginable </Text>
 
-            <Text style={styles.textTitleStyle}>  Vote! </Text>
-            <Text style={styles.textContentStyle}>  on posts and help communities lift the best content to the top </Text>
+              <Text style={styles.textTitleStyle}>  Vote! </Text>
+              <Text style={styles.textContentStyle}>  on posts and help communities lift the best content to the top </Text>
 
-            <Text style={styles.textTitleStyle}>  Subscribe! </Text>
-            <Text style={styles.textContentStyle}>  to communities to fill this home feed with fresh posts </Text>
-          </View>
+              <Text style={styles.textTitleStyle}>  Subscribe! </Text>
+              <Text style={styles.textContentStyle}>  to communities to fill this home feed with fresh posts </Text>
+            </View>
 
-          <View style={styles.buttonGroup}>
-            <SButton style={{ flex: 1 }} onPress={() => this.props.history.push('/login')} title="LOG IN" />
-            <SButton style={{ flex: 1 }} onPress={() => this.props.history.push('/register')} title="SIGN UP" />
-          </View>
+            <View style={styles.buttonGroup}>
+                <TouchableOpacity style={{ flex: 1, height: 40, marginRight: 20, backgroundColor: '#0074CD', borderRadius: 3, justifyContent: 'center', alignItems: 'center' }} onPress={() => this.props.history.push('/login')}>
+                  <Text style={{ color: '#ffffff', fontSize:14 }}>   LOG IN   </Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={{ flex: 1, height: 40, backgroundColor: '#0074CD', borderRadius: 3, justifyContent: 'center', alignItems: 'center'  }} onPress={() => this.props.history.push('/register')}>
+                  <Text style={{ color: '#ffffff', fontSize:14 }}>   SIGN IN   </Text>
+                </TouchableOpacity>
+            </View>
         </View>
 
 
@@ -100,7 +103,7 @@ const styles = {
   textTitleStyle: {
     textAlign: 'center',
     color: '#DFDFDF',
-    paddingTop: 40,
+    paddingTop: 20,
     fontSize: 18
   },
   textContentStyle: {

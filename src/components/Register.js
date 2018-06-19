@@ -12,7 +12,7 @@ const styles = {
   text: {
     color: 'white',
     paddingTop: 40,
-    fontSize: 18
+    fontSize: 12
   },
 };
 
@@ -39,8 +39,10 @@ class Register extends Component {
             <View style={{ flex: 1 }} />
           </Header>
         </View>
-        <View>
-          <Text style={styles.textTitleStyle}> Create an account </Text>
+
+        <View style={{ flex: 1, marginLeft: 20, marginRight: 20  }}>
+          <Text style={{ fontSize: 20, color: '#ffffff', marginBottom: 25, marginTop: 40 }}> Create an account </Text>
+
           <FormInput
             placeholder='Email'
             placeholderTextColor='gray'
@@ -53,14 +55,17 @@ class Register extends Component {
             placeholder='Password'
             placeholderTextColor='gray'
           />
+
           <TouchableOpacity onPress={() => this.props.history.push('/login')}>
-            <Text style={styles.textTitleStyle}> LOG IN INSTEAD </Text>
+            <Text style={{ fontSize: 12, color: '#0074CD', marginTop: 10 }}> LOG IN INSTEAD </Text>
           </TouchableOpacity>
-          <Text style={styles.text}> By signing up you agree to Terms and that you have read your Privacy Policy and Consent Policy </Text>
+          <Text style={styles.text}>By signing up you agree to <Text style={{ color: '#0074CD' }}>Terms</Text> and that you have read your <Text style={{ color: '#0074CD' }}>Privacy Policy</Text> and <Text style={{ color: '#0074CD' }}>Consent Policy</Text>.   </Text>
         </View>
-        <View>
-          <Button style={{ width: 345 }} onPress={() => this.props.history.push('/home')} title="CREATE AN ACCOUNT" />
-        </View>
+
+        <TouchableOpacity onPress={() => this.props.history.push('/home')} style={{ marginBottom: 20, marginLeft: 20, marginRight: 20, borderRadius: 3, backgroundColor: '#0074CD', height: 40, justifyContent: 'center', alignItems: 'center' }}>
+                <Text style={{ color: '#ffffff' }}>   CREATE AN ACCOUNT   </Text>
+        </TouchableOpacity>
+
       </View>
     );
   }

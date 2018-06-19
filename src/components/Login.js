@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { Icon, Button, FormInput } from 'react-native-elements';
-import { Header } from './common';
+import { Header, SButton } from './common';
 
 const styles = {
   textTitleStyle: {
@@ -35,8 +35,10 @@ class Login extends Component {
             <View style={{ flex: 1 }} />
           </Header>
         </View>
-        <View>
-          <Text style={styles.textTitleStyle}> Log in to Reddit </Text>
+
+        <View style={{ paddingLeft: 20, paddingRight: 20, flex: 1 }}>
+          <Text style={{ color: '#ffffff', fontSize: 20, marginBottom: 20, marginTop: 30 }}> Log in to Reddit </Text>
+
           <FormInput
             placeholder='Username'
             placeholderTextColor='gray'
@@ -45,16 +47,24 @@ class Login extends Component {
             placeholder='Password'
             placeholderTextColor='gray'
           />
-          <TouchableOpacity onPress={() => this.props.history.push('/register')}>
-            <Text style={styles.textTitleStyle}> SIGN UP </Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.props.history.push('/register')}>
-            <Text style={styles.textTitleStyle}> FORGOT PASSWORD </Text>
-          </TouchableOpacity>
+
+          <View style={{ flexDirection: 'row', marginTop: 10 }}>
+            <TouchableOpacity style={{ flex: 1 }} onPress={() => this.props.history.push('/register')}>
+              <Text style={{ fontSize: 12, color: '#0074CD' }}> SIGN UP </Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={{ flex: 1, alignItems: 'flex-end' }} onPress={() => this.props.history.push('/register')}>
+              <Text style={{ fontSize: 12, color: '#0074CD' }}>  FORGOT PASSWORD  </Text>
+            </TouchableOpacity>
+          </View>
+
         </View>
-        <View>
-          <Button style={{ width: 345 }} onPress={() => this.props.history.push('/home')} title="LOG IN" />
-        </View>
+
+        <TouchableOpacity onPress={() => this.props.history.push('/home')} style={{ marginBottom: 20, marginLeft: 20, marginRight: 20, borderRadius: 3, backgroundColor: '#0074CD', height: 40, justifyContent: 'center', alignItems: 'center' }}>
+                <Text style={{ color: '#ffffff' }}>  LOG IN </Text>
+        </TouchableOpacity>
+
+
       </View>
     );
   }
