@@ -110,7 +110,7 @@ class Home extends React.Component {
       {
         this.state.loading ?
         <View style={{ justifyContent: 'center', flex: 2 }}>
-          <Spinner size="large" />
+          <Spinner size="large" spinnerActivity={this.state.loading}/>
         </View> :
         <ScrollView>
           {this.renderContent()}

@@ -43,7 +43,7 @@ class SmallCard extends Component {
 
   render() {
     if (this.state.loading) {
-      return (<ActivityIndicator size="small" color="#00ff00" />);
+      return (<ActivityIndicator size="small" color="#00ff00" hidesWhenStopped={this.state.loading} />);
     } else {
     if (this.props.style === 1) {
       return (
