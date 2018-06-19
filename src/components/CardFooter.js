@@ -1,26 +1,24 @@
-import React from "react";
-import { View, Text } from 'react-native';
+import React from 'react';
+import { View } from 'react-native';
 
-class CardFooter extends React.Component{
-  constructor(props){
+class CardFooter extends React.Component {
+  constructor(props) {
     super();
     this.renderStyle = this.renderStyle.bind(this);
   }
 
-  renderStyle(){
+  renderStyle() {
     const { containerStyle, containerStyleTwo } = styles;
 
     switch (this.props.styleType) {
       case 5:
         return <View style={containerStyleTwo}>{this.props.children}</View>;
-      break;
       default:
-      return <View style={containerStyle}/>  ;
-
+        return <View style={containerStyle} />;
     }
   }
 
-  render(){
+  render() {
     return this.renderStyle();
   }
 }
@@ -37,7 +35,7 @@ const styles = {
     marginRight: 10,
     paddingLeft: 5,
     paddingRight: 5,
-    backgroundColor: '#fff',
+    backgroundColor: '#fff'
   },
   containerStyleTwo: {
     height: 145,
@@ -49,11 +47,8 @@ const styles = {
     paddingLeft: 5,
     paddingRight: 5,
     paddingBottom: 100,
-    backgroundColor: '#fff',
+    backgroundColor: '#fff'
   }
-
-}
-
-
+};
 
 export default CardFooter;
