@@ -1,62 +1,96 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView, StatusBar, TouchableOpacity , Image } from 'react-native';
-import { Header, Footer, Spinner } from './common';
-import { Icon } from 'react-native-elements';
 import axios from 'axios';
+import { Icon } from 'react-native-elements';
+import { View, ScrollView, TouchableOpacity, Image } from 'react-native';
+import { Header, Footer, Spinner } from './common';
 import CardSection from './CardSection';
+import SmallCard from './SmallCard';
 
 
 class Home extends React.Component {
   state = {
       redditPost: [],
-      loading: true,
+      loading: true
   }
 
-  componentWillMount(){
-    axios.get('https://api.reddit.com/')
-    .then(res => this.setState({ redditPost: res.data.data.children, loading: false }));
+  componentWillMount() {
+    axios.get('https://reddit.com/r/all.json')
+    .then(res => this.setState({
+      redditPost: res.data.data.children,
+      loading: false }));
   }
 
-  renderContent(){
-    let count = 1;
+  renderContent() {
+    let count = 0;
     return this.state.redditPost.map((redditPost) => {
-      switch (count) {
-        case 1:
-          count = 2;
-          return (
-            <CardSection
-            key={ redditPost.data.subreddit_id }
-            data={ redditPost }
-            styleType={1} />
-          );
-          break;
-        case 2:
-          count = 3;
-          return (
-            <CardSection
-            key={ redditPost.data.subreddit_id }
-            data={ redditPost }
-            styleType={2} />
-          );
-          break;
-        case 3:
-          count = 1;
-          return (
-            <CardSection
-            key={ redditPost.data.subreddit_id }
-            data={ redditPost }
-            styleType={3} />
-          );
-          break;
-        default:
+      count++;
+      if (count <= 5) {
+        switch (count) {
+          case 1:
+            // count = 2;
+            return (
+              <CardSection
+              key={redditPost.data.name}
+              data={redditPost}
+              styleType={1}
+              />
+            );
 
+          case 2:
+            // count = 3;
+            return (
+              <CardSection
+              key={redditPost.data.name}
+              data={redditPost}
+              styleType={2}
+              />
+            );
+
+            case 3:
+              return (
+                <View style={{ flexDirection: 'column' }}>
+                  <SmallCard
+                  key={redditPost.data.name}
+                  data={redditPost}
+                  style={1}
+                  subreddit={redditPost.data.subreddit}
+                  />
+                </View>
+              );
+            case 4:
+              // count = 4;
+              return (
+                <View style={{ flexDirection: 'column' }}>
+                  <SmallCard
+                  key={redditPost.data.name}
+                  data={redditPost}
+                  style={2}
+                  subreddit={redditPost.data.subreddit}
+                  />
+                </View>
+              );
+
+            case 5:
+              // count = 1;
+              return (
+                <CardSection
+                key={redditPost.data.name}
+                data={redditPost}
+                styleType={3}
+                />
+              );
+
+            default:
+              break;
+        }
+      } else {
+        count = 0;
       }
-
     });
   }
 
-  render(){
-    return(
+  render() {
+    return (
       <View style={{ flex: 1 }}>
       <View>
         <Header style={{ height: 72 }}>
@@ -83,7 +117,7 @@ class Home extends React.Component {
 
       {
         this.state.loading ?
-        <View style={{ justifyContent: 'center', flex: 2}}>
+        <View style={{ justifyContent: 'center', flex: 2 }}>
           <Spinner size="large" />
         </View> :
         <ScrollView>
@@ -99,7 +133,7 @@ class Home extends React.Component {
       <Image
           source={require('../assets/image/addButton.png')}
           style={{ width: 54, height: 54 }}
-          />
+      />
       </TouchableOpacity>
 
         <View>
@@ -156,12 +190,12 @@ class Home extends React.Component {
 }
 
 
-const styles= {
+const styles = {
   addWidgetStyle: {
     position: 'absolute',
     right: 20,
     bottom: 75
   }
-}
+};
 
 export default Home;
