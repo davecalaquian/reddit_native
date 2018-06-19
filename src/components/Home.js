@@ -88,8 +88,10 @@ class Home extends React.Component {
         </View> :
         <ScrollView>
           {this.renderContent()}
+          <View style={{ height: 100 }}/>
         </ScrollView>
       }
+
 
 
       <TouchableOpacity style={styles.addWidgetStyle}>
