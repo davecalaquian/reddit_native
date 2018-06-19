@@ -23,12 +23,12 @@ class SmallCard extends Component {
           this.setState({
           sub_description: res.data.data.public_description,
           sub_image: res.data.data.icon_img,
-          sub_subscribers: res.data.data.active_user_count
+          sub_subscribers: res.data.data.subscribers
           });
         } else {
           this.setState({
           sub_description: res.data.data.public_description,
-          sub_subscribers: res.data.data.active_user_count
+          sub_subscribers: res.data.data.subscribers
           });
         }
     });
