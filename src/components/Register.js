@@ -72,7 +72,7 @@ class Register extends Component {
             alignItems: 'center'
           }}
         >
-          <Text style={{ color: '#ffffff' }}> CREATE AN ACCOUNT </Text>
+          <Text style={{ color: '#ffffff' }}>   CREATE AN ACCOUNT   </Text>
         </TouchableOpacity>
       </View>
     );

@@ -47,7 +47,7 @@ class Login extends Component {
               style={{ flex: 1, alignItems: 'flex-end' }}
               onPress={() => this.props.history.push('/register')}
             >
-              <Text style={{ fontSize: 12, color: '#0074CD' }}> FORGOT PASSWORD </Text>
+              <Text style={{ fontSize: 12, color: '#0074CD' }}>   FORGOT PASSWORD   </Text>
             </TouchableOpacity>
           </View>
         </View>
