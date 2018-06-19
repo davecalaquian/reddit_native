@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, Image } from 'react-native';
+import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { Header, Footer, Button } from './common';
 
@@ -7,9 +7,8 @@ class Welcome extends Component {
 
   render() {
     return (
-
       <View style={{ flex: 1 }}>
-        <View style={{ flex: 1 }}>
+        <View >
           <Header style={{ height: 72 }}>
             <View style={{ alignItems: 'center', justifyContent: 'center' }}>
                 <Image
@@ -20,33 +19,38 @@ class Welcome extends Component {
           </Header>
         </View>
 
-        <View style={styles.contentStyle}>
-          <Icon
-            name='reddit-alien'
-            type='font-awesome'
-            color='#FF473D'
-            size={63}
-          />
-          <Text style={styles.textTitleStyle}>  Welcome!  </Text>
-          <Text style={styles.textContentStyle}>  There's a Reddit community for every topic imaginable  </Text>
-
-          <Text style={styles.textTitleStyle}>  Vote!  </Text>
-          <Text style={styles.textContentStyle}>  on posts and help communities lift the best content to the top  </Text>
-
-          <Text style={styles.textTitleStyle}>  Subscribe!  </Text>
-          <Text style={styles.textContentStyle}>  to communities to fill this home feed with fresh posts  </Text>
-        </View>
-
-        <View style={styles.buttonGroup}>
-          <Button style={{ flex: 1 }}>
-            LOG IN
-          </Button>
-          <Button style={{ flex: 1 }}>
-            SIGN UP
-          </Button>
-        </View>
-
         <View style={{ flex: 1 }}>
+          <View style={styles.contentStyle}>
+            <Icon
+              name='reddit-alien'
+              type='font-awesome'
+              color='#FF473D'
+              size={63}
+            />
+            <Text style={styles.textTitleStyle}>  Welcome!  </Text>
+            <Text style={styles.textContentStyle}>  There's a Reddit community for every topic imaginable  </Text>
+
+            <Text style={styles.textTitleStyle}>  Vote!  </Text>
+            <Text style={styles.textContentStyle}>  on posts and help communities lift the best content to the top  </Text>
+
+            <Text style={styles.textTitleStyle}>  Subscribe!  </Text>
+            <Text style={styles.textContentStyle}>  to communities to fill this home feed with fresh posts  </Text>
+          </View>
+
+          <View style={styles.buttonGroup}>
+            <Button style={{ flex: 1 }}>
+              LOG IN
+            </Button>
+            <Button style={{ flex: 1 }}>
+              SIGN UP
+            </Button>
+          </View>
+
+        </View>
+
+
+
+        <View >
           <Footer>
             <TouchableOpacity style={{ flex: 1 }}>
               <Icon
@@ -106,8 +110,6 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     padding: 45,
-    flex: 4,
-    marginTop: 40
   },
   textTitleStyle: {
     textAlign: 'center',
@@ -125,11 +127,8 @@ const styles = {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 25,
-    paddingTop: 17,
-    paddingBottom: 17,
     paddingRight: 27,
-    paddingLeft: 27
+    paddingLeft: 27,
   }
 };
 
