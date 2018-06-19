@@ -31,8 +31,8 @@ class CardHeader extends React.Component {
       case 3:
       return (
           <View style={{ flex: 5 }} >
-            <Text style={{ color: '#FFFFFF', fontSize: 15 }}>  { namePrefix } </Text>
-            <Text style={{color: '#FFFFFF', fontSize: 12}}>  u/{ user }  </Text>
+            <Text style={{ color: '#111111', fontSize: 15 }}>  { namePrefix } </Text>
+            <Text style={{color: '#4A4A4A', fontSize: 12}}>  u/{ user }  </Text>
           </View>
       );
       break;

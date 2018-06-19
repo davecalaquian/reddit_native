@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, Image  } from 'react-native';
-import { Icon } from 'react-native-elements';
+import { View, Text, TouchableOpacity, Image, ImageBackground  } from 'react-native';
+import { Icon, Tile } from 'react-native-elements';
 import CardHeader  from './CardHeader';
 import CardBody from './CardBody';
 import CardFooter from './CardFooter';
@@ -8,14 +8,12 @@ import CardFooter from './CardFooter';
 class CardSection extends Component {
   constructor(props){
       super();
-      this.state = {
-        // bar: ''
-      }
       this.conditionalStyle = this.conditionalStyle.bind(this);
+      this.renderFooter = this.renderFooter.bind(this);
   }
 
   conditionalStyle(){
-    const { TileStyleYellow, TileStyleBlue } = dynamicStyle;
+    const { TileStyleYellow, TileStyleBlue, TileStyle } = dynamicStyle;
     const { title, author, subreddit_name_prefixed, thumbnail } = this.props.data.data;
 
       switch (this.props.styleType) {
@@ -49,7 +47,12 @@ class CardSection extends Component {
         break;
         case 3:
         return (
-          <View style={TileStyleBlue} >
+          <View style={TileStyle}>
+
+              <ImageBackground source={{ uri: this.props.data.data.preview.images[0].source.url }} style={{ height: 180, borderTopLeftRadius: 9, borderTopRightRadius: 9, }} imageStyle={{ borderTopLeftRadius: 9, borderTopRightRadius: 9 }}>
+                  <Text style={{ fontSize: 20, color: '#ffffff', paddingTop: 30, paddingLeft: 10, paddingRight: 25 }}>{title}  </Text>
+              </ImageBackground>
+
               <View style={{ position: 'absolute', right: 10, top: 10}}>
                 <Icon
                   name='dots-three-vertical'
@@ -57,24 +60,40 @@ class CardSection extends Component {
                   color='#FFFFFF'
                    />
               </View>
-              <CardBody title={title} thumbnail={thumbnail} styleType={this.props.styleType} />
-              <CardHeader namePrefix={subreddit_name_prefixed} title={title} user={author} styleType={this.props.styleType} />
+
           </View>);
         break;
         default:
       }
   }
 
+  renderFooter(){
+    const { title, author, subreddit_name_prefixed } = this.props.data.data;
+
+    switch (this.props.styleType) {
+      case 3:
+        return (
+          <CardFooter styleType={this.props.styleType}>
+            <CardHeader namePrefix={subreddit_name_prefixed} title={title} user={author} styleType={this.props.styleType} />
+          </CardFooter>
+        );
+      break;
+      default:
+        return <CardFooter styleType={this.props.styleType}/>;
+    }
+  }
+
+
   render() {
     const  { leftbtn, rightbtn, cardContainStyle } = styles;
     return (
       <View >
 
-            {this.conditionalStyle()}
+          {this.conditionalStyle()}
 
-            <View>
-              <CardFooter />
-            </View>
+          <View>
+            {this.renderFooter()}
+          </View>
 
           <View style={cardContainStyle}>
             <View style={leftbtn}>
@@ -131,6 +150,15 @@ const dynamicStyle = {
     borderTopRightRadius: 9,
     height: 247,
   },
+  TileStyle: {
+    backgroundColor: '#999999',
+    marginLeft: 10,
+    marginRight: 10,
+    borderTopLeftRadius: 9,
+    borderTopRightRadius: 9,
+    height: 180,
+  },
+
 }
 
 const styles = {
