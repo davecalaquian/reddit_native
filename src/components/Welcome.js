@@ -52,48 +52,38 @@ class Welcome extends Component {
 
         <View >
           <Footer>
-            <TouchableOpacity style={{ flex: 1 }}>
-              <Icon
-                name='reddit-alien'
-                type='font-awesome'
-                color='#FF473D'
-                size={28}
+            <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+              <Image
+                  source={require('./../assets/icons/home_icons/34103.png')}
+                  style={{ width: 28, height: 24 }}
               />
             </TouchableOpacity>
 
-            <TouchableOpacity style={{ flex: 1 }}>
-              <Icon
-                name='grid'
-                type='simple-line-icon'
-                color='#5f6063'
-                size={28}
+            <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+              <Image
+                  source={require('./../assets/icons/Welcome_icons/747327.png')}
+                  style={{ width: 20, height: 20 }}
               />
             </TouchableOpacity>
 
-            <TouchableOpacity style={{ flex: 1 }}>
-              <Icon
-                name='bubble'
-                type='simple-line-icon'
-                color='#5f6063'
-                size={28}
+            <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+              <Image
+                  source={require('./../assets/icons/Welcome_icons/Message.png')}
+                  style={{ width: 20, height: 18 }}
               />
             </TouchableOpacity>
 
-            <TouchableOpacity style={{ flex: 1 }}>
-              <Icon
-                name='mail'
-                type='feather'
-                color='#5f6063'
-                size={28}
+            <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+              <Image
+                  source={require('./../assets/icons/Welcome_icons/Email.png')}
+                  style={{ width: 24, height: 16 }}
               />
             </TouchableOpacity>
 
-            <TouchableOpacity style={{ flex: 1 }}>
-              <Icon
-                name='user-o'
-                type='font-awesome'
-                color='#5f6063'
-                size={28}
+            <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+              <Image
+                  source={require('./../assets/icons/Welcome_icons/Person.png')}
+                  style={{ width: 22, height: 23 }}
               />
             </TouchableOpacity>
           </Footer>

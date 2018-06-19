@@ -43,39 +43,86 @@ class Home extends React.Component {
               styleType={2}
               />
             );
+          //
+          // case 3:
+          //   return (
+          //     <View key={redditPost.data.name} style={{ flexDirection: 'column', width: 176 }}>
+          //       <SmallCard
+          //       data={redditPost}
+          //       style={3}
+          //       subreddit={redditPost.data.subreddit}
+          //       />
+          //     </View>
+          //   );
 
-            case 3:
-              return (
-                <View key={redditPost.data.name} style={{ flexDirection: 'column' }}>
-                  <SmallCard
-                  data={redditPost}
-                  style={1}
-                  subreddit={redditPost.data.subreddit}
-                  />
-                </View>
-              );
-            case 4:
-              return (
-                <View key={redditPost.data.name} style={{ flexDirection: 'column' }}>
-                  <SmallCard
-                  data={redditPost}
-                  style={2}
-                  subreddit={redditPost.data.subreddit}
-                  />
-                </View>
-              );
-
-            case 5:
-              return (
-                <CardSection
+          case 4:
+            return (
+              //Container
+              <View
                 key={redditPost.data.name}
-                data={redditPost}
-                styleType={5}
-                />
-              );
+                style={{
+                  flexDirection: 'row',
+                  marginRight: 10,
+                  marginLeft: 10,
+                  marginBottom: 10 }}
+              >
 
-            default:
-              break;
+                <View style={{ flex: 1 }}>
+
+                  <View style={{ flex: 1, marginBottom: 10, marginRight: 10 }}>
+                    <SmallCard
+                    data={redditPost}
+                    style={1}
+                    subreddit={redditPost.data.subreddit}
+                    />
+                  </View>
+
+                  <View style={{ flex: 1, marginRight: 10 }}>
+                    <SmallCard
+                    data={redditPost}
+                    style={2}
+                    subreddit={redditPost.data.subreddit}
+                    />
+                  </View>
+
+                </View>
+
+                <View style={{ flex: 1 }}>
+
+                  <View style={{ flex: 1 }}>
+                    <SmallCard
+                    data={redditPost}
+                    style={4}
+                    subreddit={redditPost.data.subreddit}
+                    />
+                  </View>
+
+                  <View style={{ flex: 1 }}>
+                    <SmallCard
+                    data={redditPost}
+                    style={3}
+                    subreddit={redditPost.data.subreddit}
+                    />
+                  </View>
+
+                </View>
+
+
+              </View>
+            );
+
+
+          case 5:
+            return (
+              <CardSection
+              key={redditPost.data.name}
+              data={redditPost}
+              styleType={5}
+              />
+            );
+
+          default:
+            break;
         }
       }
     });
@@ -114,11 +161,9 @@ class Home extends React.Component {
         </View> :
         <ScrollView>
           {this.renderContent()}
-          <View style={{ height: 100 }}/>
+          <View style={{ height: 100 }} />
         </ScrollView>
       }
-
-
 
       <TouchableOpacity style={styles.addWidgetStyle}>
 
@@ -130,48 +175,38 @@ class Home extends React.Component {
 
         <View>
           <Footer>
-            <TouchableOpacity style={{ flex: 1 }}>
-              <Icon
-                name='reddit-alien'
-                type='font-awesome'
-                color='#FF473D'
-                size={28}
+            <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+              <Image
+                  source={require('./../assets/icons/home_icons/34103.png')}
+                  style={{ width: 28, height: 24 }}
               />
             </TouchableOpacity>
 
-            <TouchableOpacity style={{ flex: 1 }}>
-              <Icon
-                name='grid'
-                type='simple-line-icon'
-                color='#FF473D'
-                size={28}
+            <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+              <Image
+                  source={require('./../assets/icons/home_icons/747327.png')}
+                  style={{ width: 20, height: 20 }}
               />
             </TouchableOpacity>
 
-            <TouchableOpacity style={{ flex: 1 }}>
-              <Icon
-                name='bubble'
-                type='simple-line-icon'
-                color='#FF473D'
-                size={28}
+            <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+              <Image
+                  source={require('./../assets/icons/home_icons/Message.png')}
+                  style={{ width: 20, height: 18 }}
               />
             </TouchableOpacity>
 
-            <TouchableOpacity style={{ flex: 1 }}>
-              <Icon
-                name='mail'
-                type='feather'
-                color='#FF473D'
-                size={28}
+            <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+              <Image
+                  source={require('./../assets/icons/home_icons/Email.png')}
+                  style={{ width: 24, height: 16 }}
               />
             </TouchableOpacity>
 
-            <TouchableOpacity style={{ flex: 1 }}>
-              <Icon
-                name='user-o'
-                type='font-awesome'
-                color='#FF473D'
-                size={28}
+            <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+              <Image
+                  source={require('./../assets/icons/home_icons/Person.png')}
+                  style={{ width: 22, height: 23 }}
               />
             </TouchableOpacity>
           </Footer>
