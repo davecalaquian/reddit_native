@@ -1,7 +1,7 @@
 {
-  "extends": "rallycoding",
-  "rules": {
-    "global-require": 0,
+  "extends":                 "rallycoding",
+  "rules":                   {
+    "global-require":        0,
     "array-callback-return": 0
     }
 }
