@@ -89,9 +89,9 @@ class Home extends React.Component {
             break;
         }
       }
-      // else{
-      //   count = 0;
-      // }
+      else{
+        count = 0;
+      }
     });
   }
 

@@ -17,7 +17,7 @@ class CardSection extends Component {
   }
 
   componentWillMount(){
-    axios.get(`https://api.reddit.com/user/${this.props.data.data.author}/about.api`).then(res => {
+    axios.get(`https://api.reddit.com/r/${this.props.data.data.subreddit}/about.api`).then(res => {
       this.setState({
           redditUser: res.data.data.icon_img
       });
