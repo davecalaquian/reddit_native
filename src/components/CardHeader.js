@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import { Avatar } from 'react-native-elements';
 
 class CardHeader extends React.Component {
-  constructor(props) {
+  constructor() {
     super();
     this.renderStyle = this.renderStyle.bind(this);
   }
@@ -46,7 +46,7 @@ class CardHeader extends React.Component {
             size="small"
             rounded
             source={{
-              uri: this.props.userIcon ? (this.props.userIcon) : ("http://agarioskins.com/img/skin/reddit.png")  
+              uri: this.props.userIcon ? (this.props.userIcon) : ('http://agarioskins.com/img/skin/reddit.png')
             }}
             activeOpacity={0.7}
           />

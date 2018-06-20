@@ -7,7 +7,6 @@ import CardSection from './CardSection';
 import SmallCard from './SmallCard';
 
 class Home extends React.Component {
-
   state = {
     redditPost: [],
     redditUser: '',
@@ -20,9 +19,7 @@ class Home extends React.Component {
         redditPost: res.data.data.children,
         loading: false
       });
-    }
-    );
-
+    });
   }
 
   renderContent() {
@@ -35,18 +32,7 @@ class Home extends React.Component {
             return <CardSection key={redditPost.data.name} data={redditPost} styleType={1} />;
 
           case 2:
-            return <CardSection key={redditPost.data.name} data={redditPost} styleType={2}  />;
-          //
-          // case 3:
-          //   return (
-          //     <View key={redditPost.data.name} style={{ flexDirection: 'column', width: 176 }}>
-          //       <SmallCard
-          //       data={redditPost}
-          //       style={3}
-          //       subreddit={redditPost.data.subreddit}
-          //       />
-          //     </View>
-          //   );
+            return <CardSection key={redditPost.data.name} data={redditPost} styleType={2} />;
 
           case 4:
             return (
@@ -88,8 +74,7 @@ class Home extends React.Component {
           default:
             break;
         }
-      }
-      else{
+      } else {
         count = 0;
       }
     });

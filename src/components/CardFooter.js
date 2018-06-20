@@ -2,7 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 
 class CardFooter extends React.Component {
-  constructor(props) {
+  constructor() {
     super();
     this.renderStyle = this.renderStyle.bind(this);
   }
