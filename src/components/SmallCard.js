@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import numeral from 'numeral';
-import { View, Text, TouchableOpacity, Image, ActivityIndicator } from 'react-native';
+import { View, Text, TouchableOpacity, Image, ActivityIndicator, ImageBackground } from 'react-native';
 
 class SmallCard extends Component {
   constructor() {
@@ -49,9 +49,11 @@ class SmallCard extends Component {
             {this.state.sub_description}
           </Text>
           <View style={{ flex: 2, flexDirection: 'row' }}>
+
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-start' }}>
-              <Image style={styles.imageStyle} source={{ uri: this.state.sub_image }} />
+              <ImageBackground style={styles.imageStyle} source={{ uri: this.state.sub_image }}/>
             </View>
+
             <View style={{ flex: 2 }}>
               <Text style={{ flex: 2, color: '#fff' }}>r/{this.props.subreddit}</Text>
               <Text style={styles.countStyle1}>
@@ -72,7 +74,7 @@ class SmallCard extends Component {
           </Text>
           <View style={{ flex: 2, flexDirection: 'row' }}>
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-start' }}>
-              <Image style={styles.imageStyle} source={{ uri: this.state.sub_image }} />
+              <ImageBackground style={styles.imageStyle} source={{ uri: this.state.sub_image }}/>
             </View>
             <View style={{ flex: 2 }}>
               <Text style={{ flex: 2 }}>r/{this.props.subreddit}</Text>
@@ -94,7 +96,7 @@ class SmallCard extends Component {
           </Text>
           <View style={{ flex: 2, flexDirection: 'row' }}>
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-start' }}>
-              <Image style={styles.imageStyle} source={{ uri: this.state.sub_image }} />
+              <ImageBackground style={styles.imageStyle} source={{ uri: this.state.sub_image }}/>
             </View>
             <View style={{ flex: 2 }}>
               <Text style={{ flex: 2 }}>r/{this.props.subreddit}</Text>
@@ -108,7 +110,7 @@ class SmallCard extends Component {
     } else if (this.props.style === 4) {
       return (
         <View style={styles.viewStyle4}>
-          <Image style={styles.backgroundImage} source={{ uri: this.state.sub_image }} />
+          <ImageBackground style={styles.backgroundImage} source={{ uri: 'https://play.google.com/books/publish/static/images/google-search.png' }} imageStyle={{ borderTopLeftRadius: 9, borderTopRightRadius: 9 }} />
         </View>
       );
     }
@@ -117,9 +119,10 @@ class SmallCard extends Component {
 
 const styles = {
   imageStyle: {
-    height: 28,
-    width: 28,
-    borderRadius: 50
+      height: 28,
+      width: 28,
+      overflow: 'hidden',
+      borderRadius: 50
   },
   viewStyle1: {
     height: 148,
@@ -179,7 +182,11 @@ const styles = {
     borderBottomRightRadius: 8
   },
   viewStyle4: {
-    height: 155
+    backgroundColor: '#4285F4',
+    height: 155,
+    borderTopLeftRadius: 8,
+    borderTopRightRadius: 8,
+
   },
   subStyle3: {
     color: '#000',
@@ -189,7 +196,6 @@ const styles = {
   },
   backgroundImage: {
     flex: 1,
-    resizeMode: 'cover',
     borderTopLeftRadius: 8,
     borderTopRightRadius: 8
   }

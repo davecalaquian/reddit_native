@@ -7,18 +7,22 @@ import CardSection from './CardSection';
 import SmallCard from './SmallCard';
 
 class Home extends React.Component {
+
   state = {
     redditPost: [],
+    redditUser: '',
     loading: true
   };
 
   componentWillMount() {
-    axios.get('https://reddit.com/r/all.json').then(res =>
+    axios.get('https://reddit.com/r/all.json').then(res => {
       this.setState({
         redditPost: res.data.data.children,
         loading: false
-      })
+      });
+    }
     );
+
   }
 
   renderContent() {
@@ -31,7 +35,7 @@ class Home extends React.Component {
             return <CardSection key={redditPost.data.name} data={redditPost} styleType={1} />;
 
           case 2:
-            return <CardSection key={redditPost.data.name} data={redditPost} styleType={2} />;
+            return <CardSection key={redditPost.data.name} data={redditPost} styleType={2}  />;
           //
           // case 3:
           //   return (
@@ -85,6 +89,9 @@ class Home extends React.Component {
             break;
         }
       }
+      // else{
+      //   count = 0;
+      // }
     });
   }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StatusBar } from 'react-native';
-import { NativeRouter, Route, Switch } from 'react-router-native';
+import { NativeRouter, Route, Switch, Platfrom } from 'react-router-native';
 import Home from './src/components/Home';
 import Welcome from './src/components/Welcome';
 import Login from './src/components/Login';

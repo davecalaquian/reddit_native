@@ -1,17 +1,29 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Platform } from 'react-native';
 
 const Header = props => {
-  const { viewStyle } = styles;
-  return <View style={viewStyle}>{props.children}</View>;
+  const { viewStyleAndroid, viewStyleIOS } = styles;
+  if (Platform.OS == 'ios'){
+    return <View style={viewStyleIOS}>{props.children}</View>;
+  }else{
+    return <View style={viewStyleAndroid}>{props.children}</View>;
+
+  }
 };
 
 const styles = {
-  viewStyle: {
+  viewStyleAndroid: {
     alignItems: 'center',
     justifyContent: 'center',
     height: 50,
     flexDirection: 'row'
+  },
+  viewStyleIOS: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 50,
+    marginTop: 10,
+    flexDirection: 'row',
   }
 };
 

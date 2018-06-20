@@ -46,8 +46,7 @@ class CardHeader extends React.Component {
             size="small"
             rounded
             source={{
-              uri:
-                'https://image.winudf.com/v2/image/Y29tLmhhc2Jyby5FbG1vTG92ZTJMZWFybl9pY29uXzBfYjFiOWNlOQ/icon.png?w=170&fakeurl=1&type=.png'
+              uri: this.props.userIcon
             }}
             activeOpacity={0.7}
           />

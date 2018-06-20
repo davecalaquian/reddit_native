@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import { View, Text, TouchableOpacity, Image, ImageBackground } from 'react-native';
 import { Icon } from 'react-native-elements';
 import CardHeader from './CardHeader';
@@ -8,8 +9,21 @@ import CardFooter from './CardFooter';
 class CardSection extends Component {
   constructor(props) {
     super();
+    this.state = {
+      redditUser: ''
+    }
     this.conditionalStyle = this.conditionalStyle.bind(this);
     this.renderFooter = this.renderFooter.bind(this);
+  }
+
+  componentWillMount(){
+    axios.get(`https://api.reddit.com/user/${this.props.data.data.author}/about.api`).then(res => {
+        // console.log(res.data.data.icon_img);
+      this.setState({
+          redditUser: res.data.data.icon_img
+      });
+    }
+    );
   }
 
   conditionalStyle() {
@@ -28,6 +42,7 @@ class CardSection extends Component {
               title={title}
               user={author}
               styleType={this.props.styleType}
+              userIcon={this.state.redditUser}
             />
             <CardBody title={title} thumbnail={thumbnail} styleType={this.props.styleType} />
           </View>
@@ -43,6 +58,7 @@ class CardSection extends Component {
               title={title}
               user={author}
               styleType={this.props.styleType}
+              userIcon={this.state.redditUser}
             />
             <CardBody title={title} thumbnail={thumbnail} styleType={this.props.styleType} />
           </View>
@@ -89,6 +105,7 @@ class CardSection extends Component {
               title={title}
               user={author}
               styleType={this.props.styleType}
+              userIcon={this.state.redditUser}
             />
           </CardFooter>
         );
@@ -166,7 +183,8 @@ const dynamicStyle = {
     marginRight: 10,
     borderTopLeftRadius: 9,
     borderTopRightRadius: 9,
-    height: 180
+    height: 180,
+    overflow: 'hidden',
   }
 };
 
