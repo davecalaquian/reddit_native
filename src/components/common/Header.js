@@ -3,12 +3,10 @@ import { View, Platform } from 'react-native';
 
 const Header = props => {
   const { viewStyleAndroid, viewStyleIOS } = styles;
-  if (Platform.OS == 'ios'){
+  if (Platform.OS === 'ios') {
     return <View style={viewStyleIOS}>{props.children}</View>;
-  }else{
-    return <View style={viewStyleAndroid}>{props.children}</View>;
-
   }
+    return <View style={viewStyleAndroid}>{props.children}</View>;
 };
 
 const styles = {

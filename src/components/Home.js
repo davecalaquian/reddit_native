@@ -31,7 +31,6 @@ class Home extends React.Component {
         popularSubs: res.data.data.children,
         loading: false
       });
-
     });
   }
 
@@ -229,16 +228,13 @@ class Home extends React.Component {
           default:
             break;
         }
-      } else {
-        count = 0;
       }
-      // else{
+      // else {
       //   count = 0;
       // }
     }
   );
 }
-
 
 
   render() {

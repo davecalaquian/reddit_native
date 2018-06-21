@@ -6,8 +6,7 @@ import {
   TouchableOpacity,
   ImageBackground } from 'react-native';
 
-const SmallCard = (props) => {
-      return (
+const SmallCard = (props) => (
 
         <View style={props.viewStyle}>
            <TouchableOpacity style={{ flex: 1 }}>
@@ -43,6 +42,5 @@ const SmallCard = (props) => {
            </View>
          </View>
       );
-};
 
 export default SmallCard;

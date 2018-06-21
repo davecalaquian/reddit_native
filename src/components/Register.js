@@ -55,7 +55,7 @@ class Register extends Component {
           <Text style={styles.text}>
             By signing up you agree to <Text style={{ color: '#0074CD' }}>Terms</Text> and that you
             have read your <Text style={{ color: '#0074CD' }}>Privacy Policy</Text> and
-            <Text style={{ color: '#0074CD' }}>Consent Policy</Text>
+            <Text style={{ color: '#0074CD' }}> Consent Policy</Text>
           </Text>
         </View>
 
