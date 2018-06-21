@@ -17,6 +17,7 @@ class Home extends React.Component {
     };
   }
 
+
   componentWillMount() {
     axios.get('https://reddit.com/r/all.json').then(res => {
       this.setState({
@@ -30,6 +31,7 @@ class Home extends React.Component {
         popularSubs: res.data.data.children,
         loading: false
       });
+
     });
   }
 
@@ -215,6 +217,7 @@ class Home extends React.Component {
             return <CardSection key={redditPost.data.name} data={redditPost} styleType={2} />;
 
           case 3:
+
             return (
               <View key={redditPost.data.name}>
                 {this.renderSmallCard()}
@@ -226,6 +229,8 @@ class Home extends React.Component {
           default:
             break;
         }
+      } else {
+        count = 0;
       }
       // else{
       //   count = 0;
@@ -233,6 +238,7 @@ class Home extends React.Component {
     }
   );
 }
+
 
 
   render() {

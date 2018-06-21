@@ -7,22 +7,21 @@ import CardBody from './CardBody';
 import CardFooter from './CardFooter';
 
 class CardSection extends Component {
-  constructor(props) {
+  constructor() {
     super();
     this.state = {
       redditUser: ''
-    }
+    };
     this.conditionalStyle = this.conditionalStyle.bind(this);
     this.renderFooter = this.renderFooter.bind(this);
   }
 
-  componentWillMount(){
-    axios.get(`https://api.reddit.com/user/${this.props.data.data.author}/about.api`).then(res => {
-      this.setState({
-          redditUser: res.data.data.icon_img
+  componentWillMount() {
+      axios.get(`https://api.reddit.com/r/${this.props.data.data.subreddit}/about.api`).then(res => {
+          this.setState({
+              redditUser: res.data.data.icon_img
+          });
       });
-    }
-    );
   }
 
   conditionalStyle() {

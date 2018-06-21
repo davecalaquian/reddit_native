@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Image, Text } from 'react-native';
 
 class CardBody extends React.Component {
-  constructor(props) {
+  constructor() {
     super();
     this.renderContent = this.renderContent.bind(this);
   }
