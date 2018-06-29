@@ -9,7 +9,6 @@ import Register from './src/components/Register';
 
 export default class App extends React.Component {
   render() {
-    console.log(this.props);
     return (
 
       <NativeRouter>
